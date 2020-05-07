@@ -18,3 +18,4 @@ function canSum(arr,target){
 };
 
 console.log(canSum([10, 15, 3, 7],17));
+console.log(canSum([10, 15, 3, 7],19));
