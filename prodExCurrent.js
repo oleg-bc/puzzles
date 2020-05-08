@@ -15,7 +15,6 @@ function multArr(arr){
 }
 function retProds(arr){
     let solved=[];
-
     for(let i = 0; i<arr.length; i++){
         var removed = arr[i];
         var l = arr[i];
@@ -28,5 +27,19 @@ function retProds(arr){
     return solved;
 }
 
+//with division
+function retProdsAlt(arr){
+    let solved=[];
+    var newProd=multArr(arr);
+    for(let i=0;i<arr.length;i++){
+        solved.push(newProd/arr[i]);
+    }
+    console.log('NEW  SOLVED IS    ***********     ',solved);
+    return solved;
+}
+
 retProds([3, 2, 1]);
 retProds([1, 2, 3, 4, 5]);
+
+retProdsAlt([3, 2, 1]);
+retProdsAlt([1, 2, 3, 4, 5]);
