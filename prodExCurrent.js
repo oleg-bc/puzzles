@@ -20,7 +20,7 @@ function retProds(arr){
         var l = arr[i];
         var left = arrayRemove(arr, l);
         var res=0;
-        res = multArr(left);
+        res = multArr(left); // reruns the loop every iteration N^2
         solved.push(res)
     }
     console.log('SOLVED IS    ***********     ',solved);
@@ -28,7 +28,7 @@ function retProds(arr){
 }
 
 //with division
-function retProdsAlt(arr){
+function retProdsAlt(arr){  // This solution is N time complexity 2 passes
     let solved=[];
     var newProd=multArr(arr);
     for(let i=0;i<arr.length;i++){
