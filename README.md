@@ -7,7 +7,7 @@ Given a list of numbers and a number k, return whether two numbers from list add
 For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 Bonus: Can you do this in one pass?
 
-(2) 5/9/2020
+(2) 5/9/2020 **
 LeetCode Given arr of ints, return indices of the two numbers 
 such that they add up to a specific target.
 Assume that each input would have exactly one solution, 
