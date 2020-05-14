@@ -1,40 +1,39 @@
-class Node{
-    constructor(value){
+class Node {
+    constructor(value) {
         this.value = value;
         this.next = null;
     }
 }
 
-class LinkedList{
-    constructor(){
-     this.head = null;
-     this.size =0;
-}
-     isEmpty(){
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
+    isEmpty() {
         return this.size == 0;
     }
-    insert(value){ 
-        if(this.head === null){this.head = new Node(value)}
-        
-        else{
+    insert(value) {
+        if (this.head === null) { this.head = new Node(value) } else {
             var temp = this.head;
             this.head = new Node(value);
-            this.head.next = temp;}
+            this.head.next = temp;
+        }
         this.size++
     }
-    
+
     // remove(value){
     //     var prevNode = this.findP
     // }
-    delete(value){
+    delete(value) {
         var curHead = this.head;
-        if (curHead.value == value){
+        if (curHead.value == value) {
             this.head = curHead.next;
             this.size--;
-        }else{
+        } else {
             var prev = curHead;
-            while(curHead.next){
-                if(curHead.data == value){
+            while (curHead.next) {
+                if (curHead.data == value) {
                     prev.next = curHead.next;
                     prev = curHead;
                     curHead = curHead.next;
@@ -43,22 +42,22 @@ class LinkedList{
                 prev = curHead;
                 curHead = curHead.next;
             }
-            if(curHead.value == value){
+            if (curHead.value == value) {
                 prev.next = null;
             }
             this.size--;
         }
     }
-    contains(value){
+    contains(value) {
         var curNode = this.head;
-        while(curNode.value != value){
+        while (curNode.value != value) {
             curNode = curNode.next;
         }
         return curNode;
     }
-    display(){
+    display() {
         var curNode = this.head;
-        while(!(curNode.next == null)){
+        while (!(curNode.next == null)) {
             console.log(curNode.next.value);
             curNode = curNode.next;
         }
@@ -74,12 +73,12 @@ sll1.delete(12); // linked list is now: 20 -> 1 -> null 32
 sll1.delete(20); // linked list is now: 1 -> null
 console.log(sll1);
 
-var cities = new LinkedList(); 
-cities.insert("Conway", "head"); 
-cities.insert("Russellville", "Conway"); 
-cities.insert("Carlisle", "Russellville"); 
-cities.insert("Alma", "Carlisle"); 
-cities.display(); 
-console.log(); 
-cities.delete("Carlisle"); 
-cities.display(); 
+var cities = new LinkedList();
+cities.insert("Conway", "head");
+cities.insert("Russellville", "Conway");
+cities.insert("Carlisle", "Russellville");
+cities.insert("Alma", "Carlisle");
+cities.display();
+console.log();
+cities.delete("Carlisle");
+cities.display();
