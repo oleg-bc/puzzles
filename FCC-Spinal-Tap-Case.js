@@ -1,16 +1,15 @@
 function spinalCase(str) {
 
+    // Replace low-upper case to low-space-uppercase
     var str1 = str.replace(/([a-z])([A-Z])/g, "$1 $2"); /// stuck on this solution- replaces lower-followed-by-cap with space
     str1 = str1.replace(/\s+|[_]/g, "-"); // replaces spaces and or udnerscores with DASH
-    // Replace low-upper case to low-space-uppercase
-    //str1 = str1.replace(/([a-z])([A-Z])/g, "$1 $2");
     str1 = str1.toLowerCase();
     console.log(str1);
     return str1;
 }
 
 spinalCase('This Is Spinal Tap');
-
+// Pseudocode and testcases
 //1. This Is Spinal Tap
 //>>>> MAKE THIS LAST STEP - convert to lower
 // if space or underscore convert to dash
