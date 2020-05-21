@@ -1,0 +1,13 @@
+let reaction = 'yikes';
+reaction[0] = 'l';
+console.log(reaction);
+
+1. declare reaction.
+2. assign value of string 'yikes' to it.
+3. cast reaction as an array - that is - convert the string reaction to an object.
+4. assign value of 'l' string to the 1st element of reaction array. 
+
+=======
+NONE OF THAT HAPPENED!!!! 
+console.log(reaction);
+VM4246:3 yikes

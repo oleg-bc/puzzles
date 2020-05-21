@@ -17,3 +17,8 @@ return an integer - that is max length of the word chain
 Predecessor words are to follow by successor words.
 
 https://codeinterview.io/JNWZGHXCCW
+
+the approach is to take the shortest in the input
+check the count in the cache - is count of instance +1 bigger than existing count? if YES 
+make that new count
+check next entry by taking out one of the letters
