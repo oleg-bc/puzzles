@@ -11,3 +11,19 @@ console.log(reaction);
 NONE OF THAT HAPPENED!!!! 
 console.log(reaction);
 VM4246:3 yikes
+
+
+EX2:
+let pet = 'Narwhal';
+pet = 'The Kraken';
+console.log(pet); // ?
+Like before, write down your thinking process in a few sentences. 
+Don’t rush ahead. Pay close attention to how you’re thinking about 
+each line, step by step. Does immutability of strings play a role here, 
+and what role does it play?
+
+output: 'The Kraken'
+
+I already new that type cant change but content can b/c its a variable.
+Immutability of strings does not play a role because we are changing it from
+a string to a string.
