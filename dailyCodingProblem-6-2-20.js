@@ -37,6 +37,8 @@ var isEven = function(strIn) {
         if (strIn[i] === ')') {
             pOpen = false;
             pcCounter++;
+
+            if (sOpen) { return false; }
         }
         if (strIn[i] === ']') {
             sOpen = false;
@@ -44,11 +46,12 @@ var isEven = function(strIn) {
         }
         if (strIn[i] === '}') {
             cOpen = false;
-            scCounter++;
+            ccCounter++;
         }
 
         if (strIn[i] === ')' && (sOpen || cOpen)) { return false; }
     }
+    //console.log('poCounter ', poCounter, 'pcCounter ', pcCounter, 'soCounter ', soCounter, 'scCounter ', scCounter);
     if (poCounter === pcCounter && soCounter === scCounter) { return true; }
     return false;
 }
