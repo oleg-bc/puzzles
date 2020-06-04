@@ -59,35 +59,3 @@ var isEven = function(strIn) {
 console.log(isEven("([])[]({})")); //true.
 console.log(isEven("([)]")); // false.
 console.log(isEven("((()")); // false.
-
-
-
-/*
-    let poCounter = 0;
-    let soCounter = 0;
-    let pcCounter = 0;
-    let scCounter = 0;
-    let openP = false;
-    let openS = false;
-    for (var i = 0; i < strIn.length; i++) {
-        if (strIn[i] === '(') {
-            poCounter++;
-            openP = true;
-        }
-        if (strIn[i] === '[') {
-            soCounter++;
-            openS = true;
-        }
-        //closing
-        if (i === ']') {
-            scCounter++;
-            openS = false;
-        }
-        if (strIn[i] === ')') {
-            pcCounter++;
-            if (openS == true) { return false; }
-        }
-    }
-    if (poCounter === pcCounter && soCounter === scCounter) { return true; }
-    return false;
-*/
