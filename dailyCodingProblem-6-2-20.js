@@ -38,7 +38,7 @@ var isEven = function(strIn) {
             pOpen = false;
             pcCounter++;
 
-            if (sOpen) { return false; }
+            if (sOpen || cOpen) { return false; }
         }
         if (strIn[i] === ']') {
             sOpen = false;
