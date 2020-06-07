@@ -50,3 +50,35 @@ let sum = roman.reduce(function(accumulator, currentValue) {
 
 
 console.log(sum);
+
+///MOREPUZZLES:
+
+/* 
+I'll make it $100 if you can solve these in the next 45 minutes (javascript):
+
+Palindromes A palindrome is a word, number, phrase, or another sequence of characters which reads the same backward as forward, such as madam, racecar, or the number
+
+What is the sum of all numeric palindromes that are less than 10,000?
+
+Your Solution
+
+==================
+
+Fibonacci The Fibonacci sequence begins like this: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 (each number is the sum of the previous two)
+
+What is the sum of all odd numbers in the Fibonacci sequence that are less than 10,000?
+
+Your Solution
+
+==================
+
+Epigram on Failure Given the following quote by Alan Perlis
+
+“Dealing with failure is easy: Work hard to improve. Success is also easy to handle: You’ve solved the wrong problem. Work hard to improve.”
+
+Considering only the alphabetical characters, consonants having the value of their ASCII codes, and vowels having the inverse value of their ASCII codes, what is the sum of the sentence?
+
+Example: Taking the word “iffy”, the ASCII code of “i” is 105, it’s inverse is -105. The ASCII value of ‘f’ is 102. The ASCII y of “y” is 121. The sum of “iffy” = 220
+
+Your Solution   
+*/
