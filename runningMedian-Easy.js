@@ -25,13 +25,15 @@ function doTheMedean(arg) {
         return (arg[0] + arg[1]) / 2;
     }
     if (arg.length > 2) {
-        let mid = (arg.length) / 2;
         //console.log("arg.length is now:    ", arg.length, "  and mid is   ", mid)
+        let mid;
         if (arg.length % 2 === 0) {
-            return (arg[mid - 1] + arg[mid + 1]) / 2;
-        } else {
-            let odd = Math.ceil(mid);
-            return arg[odd];
+            mid = (arg.length) / 2;
+            return (arg[mid] + arg[mid + 1]) / 2;
+        } else if (arg.length % 2 !== 0) {
+            mid = Math.ceil(arg.length / 2);
+            //let odd = Math.ceil(mid);
+            return arg[mid];
         }
     }
 }
@@ -46,8 +48,9 @@ function runningMedian(args) {
     console.log(args[0]);
     for (let i = 1; i < args.length; i++) {
         newArr.push(args[i]);
-        //console.log("args[i] is ", args[i], "  and newArr is  ", newArr)
         newArrS = runningSort(newArr);
+        console.log("args[i] is ", args[i], "  and newArrS is  ", newArrS)
+
         let medean = doTheMedean(newArrS);
         console.log(medean);
     }
