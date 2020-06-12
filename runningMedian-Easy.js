@@ -20,7 +20,7 @@ arr; // ['a', 'b', 'c', 'd'];
 
 function doTheMedean(arg) {
 
-    if (arg.length < 2) { return arg[0]; }
+    if (arg.length < 2 && arg.length > 0) { return arg[0]; }
     if (arg.length == 2) {
         return (arg[0] + arg[1]) / 2;
     }
@@ -33,14 +33,16 @@ function doTheMedean(arg) {
         } else if (arg.length % 2 !== 0) {
             mid = Math.ceil(arg.length / 2);
             //let odd = Math.ceil(mid);
+            console.log('hiiiiiii   ', mid);
             return arg[mid];
+
         }
     }
 }
 
 function runningSort(arrArg) {
     arrArg = arrArg.sort((x, y) => x - y);
-    return arrArg;
+    //return arrArg;
 }
 
 function runningMedian(args) {
