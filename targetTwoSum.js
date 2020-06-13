@@ -33,3 +33,47 @@ const getTargetIndexes = (array, target) => {
 
     return results;
 };
+
+//BRUTEFORCE:
+
+const bruteForceGetTargetIndexes = (array, target) => {
+    const results = [];
+
+    // Iterate through array to check each value against every other value
+    for (let i = 0; i < array.length; i++) {
+        // We start j at i + 1 to make sure we don't compare the same index pairs more than once
+        for (let j = i + 1; j < array.length; j++) {
+            // If the sum of the values equals the target, we return the pair in an array
+            if (array[i] + array[j] === target) {
+                results.push([i, j]);
+            }
+        }
+    }
+
+    return results;
+};
+
+//best single loop
+
+const getTargetIndexes = (array, target) => {
+    const results = [];
+    const arrayElementAtIndex = {};
+
+    for (let i = 0; i < array.length; i++) {
+        const currentValue = array[i];
+        const matchedValue = target - currentValue;
+        const matchedIndex = arrayElementAtIndex[matchedValue];
+
+        if (matchedIndex >= 0) {
+            results.push([i, matchedIndex]);
+
+            arrayElementAtIndex[currentValue] = -1;
+            arrayElementAtIndex[matchedValue] = -1;
+        }
+
+        // Add values after we see them
+        arrayElementAtIndex[currentValue] = i;
+    }
+
+    return results;
+};
