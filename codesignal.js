@@ -1,22 +1,19 @@
-//temporary saved work
-
 function firstDuplicate(a) {
-    let b = a;
-    var dupIndexes = [];
-    let dupind;
+    let c = [];
+    let dupIndexes = [];
+    let noDups = true;
     for (let i = 0; i < a.length; i++) {
         let temp = a[i];
+        c.push(temp);
         a[i] = NaN;
         if (a.includes(temp)) {
-            //return temp;
-            dupind = a.indexOf(temp)
-            dupIndexes.push(dupind);
-            //a[i]=temp;
-        } else { i++ }
+            noDups = false;
+            let dupInd = a.indexOf(temp);
+            dupIndexes.push(dupInd);
+        }
     }
-    if (!dupIndexes) { return -1; } else {
-        let smallestDupInd = Math.min(...dupIndexes);
+    let position = Math.min(...dupIndexes);
+    if (noDups) { return -1; }
+    return c[position];
 
-        return b[smallestDupInd];
-    }
 }
