@@ -59,3 +59,40 @@ function helloWorld(name) {
     console.log("This prints to the console when you Run Tests");
     return "Hello, " + name;
 }*/
+
+
+
+/*
+function firstDuplicate(a) {
+let smallestDupIndex=-1;
+let noDups=true;
+for (let i=0;i<a.length;i++){
+    let temp=a[i];
+    a[i]=a[i]*-1;
+    if(a.includes(temp)){
+        noDups=false;
+        let dupInd = a.indexOf(temp);
+        if(smallestDupIndex=== -1 || smallestDupIndex > dupInd) {
+            smallestDupIndex=dupInd;
+            }
+       }
+}
+if(noDups){return -1;}
+return Math.abs(a[smallestDupIndex]);
+}
+*/
+
+
+
+
+/*found solution
+
+function firstDuplicate(a) {
+  for (let i of a) {
+    let abVal = Math.abs(i) - 1
+    if (a[abVal] < 0) return abVal + 1
+    a[abVal] = a[abVal] * -1
+  }  return -1;
+}
+
+ */
