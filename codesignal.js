@@ -8,12 +8,15 @@ function firstDuplicate(a) {
         a[i] = NaN;
         if (a.includes(temp)) {
             noDups = false;
-            let dupInd = a.indexOf(temp);
-            dupIndexes.push(dupInd);
+            //let dupInd = a.indexOf(temp);
+            //dupIndexes.push(dupInd);
+            dupIndexes.push(a.indexOf(temp));
         }
     }
-    let position = Math.min(...dupIndexes);
     if (noDups) { return -1; }
+    let position = Math.min(...dupIndexes);
     return c[position];
-
 }
+
+let b = [2, 1, 3, 5, 3, 2];
+firstDuplicate(b);
