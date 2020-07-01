@@ -1,0 +1,142 @@
+WEDNSDAY JUNE 24 https://skilled.dev/course/max-min-stack
+NTERVIEW QUESTION
+Max Min Stack
+# Stacks and Queues
+SUBMIT FEEDBACK
+Navigate Course
+We've already seen how to implement a stack using linked lists or dynamic arrays. Your challenge is going to be to build on this to create a stack with additional superpowers.
+
+Create a MaxMinStack class that will return the maximum and minimum value from the stack at any time using getStackMax and getStackMin functions.
+
+// Examples
+[4] // max: 4, min: 4
+// Push 5 more items
+[4, 17, 4, 42, 0, 1] // max: 42, min: 0
+// Pop 3 items
+[4, 17, 4] // max: 17, min: 4
+// Pop 2 items
+[4] // max: 4, min: 4
+// Push 2 items
+[4, -10, -5] // max: 4, min: -10
+You will start with the Stack class below. You can add or update any method necessary for this to work. The stack will only be passed integers.
+
+class Stack {
+  // Any of the initial methods can be updated
+  constructor() {
+    this.stack = [];
+  }
+  peek() {
+    return this.stack[this.stack.length - 1];
+  }
+  push(item) {
+    this.stack.push(item);
+    return item;
+  }
+  pop() {
+    return this.stack.pop();
+  }
+
+  // You must implement the methods below
+  getStackMax() {
+    // Return the largest integer currently in the stack (don't remove it)
+  }
+  getStackMin() {
+    // Return the smallest integer currently in the stack (don't remove it)
+  }
+}
+Breakdown
+In a brute force approach, we could find the maximum and minimum integer by iterating through all the items. We could pop all the items and maintain the max/min until we reaching the bottom of the stack and then return that, and then we would need to push all the items back on.
+
+The brute force solution would require O(n) time and space. We would iterate through all n items and would need a data structure store the items that we pop while we iterate through the stack.
+
+What if we just maintained the current max/min in a variable. Let's visualize this scenario.
+
+stack = [];
+stack.push(1) // [1] -> max = min = 1
+stack.push(42) // [1, 42] -> max = 42, min = 1
+stack.push(3) // [1, 42, 3] -> max = 42, min = 1
+stack.pop() // [1, 42] -> max = 42, min = 1
+stack.pop() // [1] -> max = ???, min = 1
+We can pretty quickly see that we have an issue if we remove the maximum or minimum item. In the example above, we remove the max value and would need to iterate through the stack to find the new max.
+
+This means we'll need to use a data structure to store the maximum and minimum values to so we can keep a history of them as we push and pop.
+
+We need to maintain a sequence of both maximum and minimum values. Let's walk through an example to understand what our maximum and minimum values would be at any point for the stack.
+
+
+So if we translated this to a data structure, we can see that to track the max/min, we're actually creating additional stacks. We just need to know the last max or min value for any given item in the primary stack.
+
+To know the maximum and minimum at any point, all we would need to do is check the top value of these new stacks.
+
+In fact, we don't even need to store the value for all the items. We only need to add an item to our max or min stack if it is a new max or min for the most recent value. Then if we pop off either value from our primary stack, we simply just need to also pop it from our max or min stack.
+
+Validate My Answer
+A brute force solution would be to iterate the stack to track the max/min integer. This would require O(n) time, so we should be looking for solutions better than this.
+
+The max and min can increase or decrease at any point depending on what integer you push/pop. Make sure you account for this.
+
+You can solve this in O(1) time and O(n) space.
+
+Solution
+Our MaxMinStack builds up from a normal stack implementation. We introduce two additional stack data structures to store the current maximum and minimum values at any point.
+
+If we push new values that replace the current max or min, we just add that as the top of its corresponding stack.
+If we push a value that is equal to the current max or min, we add it to the corresponding stack to account for it occurring more than once.
+If we pop a value that is equal to the current max or min, we also remove it from its corresponding stack.
+Calling getStackMax, we just return the top item of the max tracking stack (equivalent to a peek)
+Calling getStackMin, we just return the top item of the min tracking stack (equivalent to a peek)
+Because all of our operations happen at the end of a stack, we know they are all O(1) time.
+
+class MaxMinStack {
+  constructor() {
+    this.stack = [];
+
+    // Stacks for internal tracking of the max/min
+    this._maxValueStack = [];
+    this._minValueStack = [];
+  }
+  peek() {
+    return this.stack[this.stack.length - 1];
+  }
+  push(item) {
+    this.stack.push(item);
+
+    if (this._maxValueStack.length === 0 || item >= this.getStackMax()) {
+      this._maxValueStack.push(item);
+    }
+    if (this._minValueStack.length === 0 || item <= this.getStackMin()) {
+      this._minValueStack.push(item);
+    }
+
+    return item;
+  }
+  pop() {
+    const item = this.stack.pop();
+
+    if (item === this.getStackMax()) {
+      this._maxValueStack.pop();
+    }
+    if (item === this.getStackMin()) {
+      this._minValueStack.pop();
+    }
+
+    return item;
+  }
+
+  // Effectively a "peek()" for the max/min values of the stack
+  getStackMax() {
+    return this._maxValueStack[this._maxValueStack.length - 1];
+  }
+  getStackMin() {
+    return this._minValueStack[this._minValueStack.length - 1];
+  }
+}
+Big O Complexity
+O(1) time and O(n) space where n is the number of items pushed to the stack.
+
+We create two additional stacks that require n space in the worst case. However, we get constant time O(1) operations for all methods because stacks are fast at the end.
+
+Learning Outcomes
+If you get an interview question to track the max or min where data is added/removed linearly from the end, a great first intuition is to use a stack.
+
+A prompt may not be presented as straightforward as this question (to directly find the max/min values on a stack), but the application of it will be nearly identical.
