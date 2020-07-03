@@ -107,3 +107,30 @@ function sudoku2(grid) {
 
     return true;
 }
+
+
+
+
+
+
+/*IS SYMMETRIC JUNK
+
+}}
+function findMinHeight(node=root){
+    if(node == null){return -1;}
+    let left = findMinHeight(node.left);
+    let right = findMinHeight(node.right);
+    if (left<right){return left+1;}else{
+        return right+1;
+    }
+}
+function findMaxHeight(node=root){
+    if(node == null){return -1;}
+    let left = findMaxHeight(node.left);
+    let right =findMaxHeight(node.right);
+    if (left>right){return left+1;}else{
+        return right+1;
+    }
+}
+function isTreeBalanced(t){return (findMinHeight(t) >= findMaxHeight(t) -1);}
+*/
