@@ -1,5 +1,33 @@
+function checkDups(arr) {
+    arr = arr.filter(e => e != ".");
+    console.log("ARR WITH NO DOTS ", arr);
+    return new Set(arr).size !== arr.length
+}
+
+// function checkDups(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         console.log('BEFORE', arr[i]);
+//         let temp = arr[i];
+//         arr[i] = "X" + i;
+//         console.log('AFTER', arr[i]);
+//         if (temp !== "." && (temp in arr)) {
+//             console.log("YES DUPLICATE")
+//             return;
+//         }
+
+//     };
+//     console.log("NOOOOOO DUPLICATE")
+//     console.log('arr is   *** ', arr);
+// }
+let testArr = [".", ".", ".", 1, 2, 3, 1, 45, 6];
+
+console.log(checkDups(testArr));
+
+
+//////all the solutions so far
+
 /////HELPERS
-// function to get subsquares
+// function to get subsquares TAKES GRID X-OUTER LOOP Y-INNER LOOP
 function getSquare(grid, x, y) {
     x *= 3;
     y *= 3;
@@ -11,17 +39,20 @@ function getSquare(grid, x, y) {
     }
     return square;
 }
+
+
 //function to check for duplicates in an array
 function checkDups(arr) {
+    let arr2 = [];
     for (let i = 0; i < arr.length; i++) {
-        let temp = arr[i];
-        arr[i] = -1;
-        if (temp !== "." && temp in arr) {
-            return false;
+        if (arr[i] !== ".") {
+            arr2.push(arr[i])
         }
     }
-    return true;
-};
+    //console.log("ARR WITH NO DOTS ", arr);
+    return new Set(arr2).size !== arr2.length
+}
+
 //function converts columns to array of rows
 function colToArr(arrg) {
     let i, j, t = [];
@@ -45,14 +76,14 @@ function sudoku2(grid) {
     let colsTocheck = colToArr(grid);
     //check rows
     for (let e of grid) {
-        if (!checkDups(grid[e])) {
+        if (checkDups(grid[e])) {
             console.log("FAILED ON ONE OF THE ROW ARRS");
             return false;
         }
     }
     //check columns
     for (let i of colsTocheck) {
-        if (!checkDups(colsTocheck[i])) {
+        if (checkDups(colsTocheck[i])) {
             console.log("FAILED ON ONE OF THE COLUMN ARRS");
             return false;
         }
@@ -63,11 +94,11 @@ function sudoku2(grid) {
         for (let y = 0; y < 3; y++) {
             let squareRows = getSquare(grid, x, y);
             for (let i of squareRows) {
-                if (!checkDups(squareRows[i])) return false;
+                if (checkDups(squareRows[i])) return false;
             }
             let squareCols = colToArr(squareRows);
             for (let e = 0; e < squareCols.length; e++) {
-                if (!checkDups(squareCols[e])) return false;
+                if (checkDups(squareCols[e])) return false;
             }
         }
     }
@@ -76,18 +107,3 @@ function sudoku2(grid) {
 
     return true;
 }
-
-
-let test1 = [
-    ["7", ".", ".", ".", "4", ".", ".", ".", "."],
-    [".", ".", ".", "8", "6", "5", ".", ".", "."],
-    [".", "1", ".", "2", ".", ".", ".", ".", "."],
-    [".", ".", ".", ".", ".", "9", ".", ".", "."],
-    [".", ".", ".", ".", "5", ".", "5", ".", "."],
-    [".", ".", ".", ".", ".", ".", ".", ".", "."],
-    [".", ".", ".", ".", ".", ".", "2", ".", "."],
-    [".", ".", ".", ".", ".", ".", ".", ".", "."],
-    [".", ".", ".", ".", ".", ".", ".", ".", "."]
-];
-
-console.log(sudoku2(test1));
