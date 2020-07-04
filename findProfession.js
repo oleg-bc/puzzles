@@ -100,4 +100,29 @@ Guaranteed constraints:
 
 Return Engineer or Doctor.
 
+SOLUTION EXPLANATION: --------------
+https://askvoprosy.com/voprosy/discussion-about-how-to-retrieve-an-i-th-element-in-the-j-th-level-of-a-binary-tree-algorithm
+Let's number the nodes of the tree in the following way:
+
+1) the root has number 1
+2) the first child of node x has number 2*x
+3) the second child of node x has number 2*x+1
+
+Now, notice that each time you go to the first child, the profession stays the same, and you add a 0 to the binary representation of the node. And each time you go to the second child, the profession flips and you add a 1 to the binary representation.
+Example: Let's find the profession of the 4th node in the 4th level (last level in the diagram you have in the question). First we start at the root with number 1, then we go to the first child with number 2 (10 binary). After that we go to the second child of 2 which is 5 (101 binary). Finally, we go to the second child of 5 which is 11 (1011 binary).
+Notice that we started with only one bit equal to 1, then every 1 bit we added to the binary representation flipped the profession. So the number of times we flip a profession is equal to the (number of bits equal to 1) - 1. The parity of this amount decides the profession.
+
+This leads us to the following solution:
+
+X = number of bits equal to 1 in [ 2^(level-1) + pos - 1 ]
+
+Y = (X-1) mod 2
+if Y is 0 then the answer is "Engineer" Otherwise the answer is "Doctor"
+since 2^(level-1) is a power of 2, it has exactly one bit equal to 1, therefore you can write:
+X = number of bits equal to 1 in [ pos-1 ]
+Y = X mod 2
+
+Which is equal to the solution you mentioned in the question.
+
+
 */

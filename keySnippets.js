@@ -65,3 +65,26 @@ function toIint(inpt) {
 var colors = ["red", "blue", "car", "green"];
 var carIndex = colors.indexOf("car");
 colors.splice(carIndex, 1);
+
+
+// split string into an array
+//  output =H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?
+var str = "How are you doing today?";
+
+var res = str.split("");
+
+
+//convert numbers to string or even binary:
+
+var myNumber = 120;
+var myString = myNumber.toString(); //converts number to string "120"
+var num = 213;
+console.log("Output : " + num.toString()); // convert to integer string        
+console.log("Output : " + num.toString(2)); // convert to binary string
+function dec2bin(dec) {
+    return (dec >>> 0).toString(2);
+}
+dec2bin(1); // 1
+dec2bin(-1); // 11111111111111111111111111111111
+dec2bin(256); // 100000000
+dec2bin(-256); // 11111111111111111111111100000000
