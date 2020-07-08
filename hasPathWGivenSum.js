@@ -6,8 +6,15 @@
 //   this.right = null;
 // }
 
-
 function hasPathWithGivenSum(t, s) {
+    if (!t) return s === 0;
+    s -= t.value;
+    return hasPathWithGivenSum(t.left, s) ||
+        hasPathWithGivenSum(t.right, s);
+}
+
+
+function hasPathWithGivenSum2(t, s) {
     var unvisited = []
     if (!t && s != 0) {
         return false
