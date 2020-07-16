@@ -2,6 +2,7 @@ function coverDebts(s, debts, interests) {
     console.log(s, debts, interests);
     let bud = s * .1;
     let maxIntVal = Math.max(...interests);
+    console.log("MAXINTVAL", maxIntVal)
     let mii = interests.indexOf(maxIntVal);
     let total = 0;
 

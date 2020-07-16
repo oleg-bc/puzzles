@@ -17,7 +17,7 @@ function coverDebts(s, debts, interests) {
         if (paid == 0) {
             debts[mii] = 0;
             total = total + bud;
-            interests = interests.splice(interests[mii], 1);
+            //interests = interests.splice(interests[mii], 1);
             //debts = debts.splice(debts[mii], 1);
         }
         if (paid > 0) {
@@ -28,7 +28,7 @@ function coverDebts(s, debts, interests) {
         if (paid < 0) {
             debts[mii] = 0;
             total = total + (bud - debts[mii]);
-            interests = interests.splice(interests[mii], 1);
+            //interests = interests.splice(interests[mii], 1);
             //debts = debts.splice(debts[mii], 1);
         }
         accrueInterest(debts, interests);
