@@ -2,7 +2,7 @@ function coverDebts(s, debts, interests) {
     console.log(s, debts, interests);
     let bud = s * .1;
     let total = 0;
-    let zeros = (rate => rate < 1);
+    let zeros = (rate => rate < 1); ///interests.every(zeros)
 
     function accrueInterest(debts, interests) {
         for (let i = 0; i < debts.length; i++) {
