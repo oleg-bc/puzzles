@@ -1,22 +1,14 @@
-// let vertices = {1,2,3,4,5,6},
-//     edges = {{1,2},{1,5},{1,3},{2,5},{4.6},{4,5},{4,6}}
+let vertices = { 1, 2, 3, 4, 5, 6 },
+    edges = {
+        { 1, 2 },
+        { 1, 5 },
+        { 1, 3 },
+        { 2, 5 },
+        { 4.6 },
+        { 4, 5 },
+        { 4, 6 }
+    };
 
-// let graphAdj;
-// const initGrpah = (maxVertex) => {
-//     graphAdj = new Array(maxVertex);
-
-// for (let i=0;i<graphAdj.length;i++){
-//     graphAdj[i] = new Array(maxVert)
-//     }
-
-//     for (let i=0;i<graphAdj.length;i++){
-
-//         for(letj=0;j<graphAdj[i].length;j++){
-
-//             graphAdj[i][j]=0;    
-//             }
-//         }
-// }
 
 const printGraph = () => {
     let graphline = " ";
@@ -43,8 +35,6 @@ const insertGraph = (a, b) => {
         }
     }
 }
-
-
 
 
 ///tracking visits to vertices
@@ -76,7 +66,6 @@ const initGraph = (maxVertice) => {
         }
     }
 }
-
 
 
 const dfs = (node) => {
@@ -117,3 +106,37 @@ const bfs = (node) => {
         }
     }
 }
+
+
+initGraph(Math.max(vertices));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let graphAdj;
+// const initGrpah = (maxVertex) => {
+//     graphAdj = new Array(maxVertex);
+
+// for (let i=0;i<graphAdj.length;i++){
+//     graphAdj[i] = new Array(maxVert)
+//     }
+
+//     for (let i=0;i<graphAdj.length;i++){
+
+//         for(letj=0;j<graphAdj[i].length;j++){
+
+//             graphAdj[i][j]=0;    
+//             }
+//         }
+// }
