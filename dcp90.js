@@ -10,18 +10,15 @@ function retRand(num, list) {
     let themult = Math.floor(num);
     let retVal;
     retVal = Math.floor(themult * (Math.random()));
-
-
     if (list.includes(retVal)) {
         retRand(num, list);
 
     }
-
     return retVal;
-
 }
-
 
 let l = [1, 2, 3, 4, 5, 88, 676]
 let n = 888;
-console.log(retRand(n, l));
+for (let i = 0; i < 50; i++) {
+    console.log(retRand(n, l));
+}
