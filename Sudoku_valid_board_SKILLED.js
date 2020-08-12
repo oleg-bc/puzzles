@@ -136,9 +136,8 @@ k
 size board, not just the standard 9 x 9 board.
 The problem input will be a 2-dimensional array that corresponds
 to the rows and columns of the board. The values of the array will
-https://skilled.dev/course/valid-sudoku-board
-1/146/24/2020
-Valid Sudoku Board Coding Interview Question | Skilled.dev
+
+Valid Sudoku Board Coding Interview Question
 be 0-k where 0 means it is an empty cell and 1-k are values in
 a cell.
 To be valid, the board must be a square of n = k x k where k is
