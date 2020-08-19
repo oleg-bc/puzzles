@@ -31,8 +31,22 @@ function latticePaths(m, n) {
         return cache[key];
     }
     return traverse(m, n);
-
 }
 
 console.log(latticePaths(3, 2));
 console.log(latticePaths(7, 3));
+
+function latticePaths2(m, n) {
+
+    let table = new Array(n + 1).fill(1);
+    for (let i = 0; i < m; i++) {
+
+        for (let j = 1; j < table.length; j++) {
+            table[j] = table[j] + table[j - 1];
+        }
+    }
+    return table[n];
+}
+
+console.log(latticePaths2(3, 2));
+console.log(latticePaths2(7, 3));
