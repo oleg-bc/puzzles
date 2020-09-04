@@ -52,3 +52,22 @@ function bitFlip(arr, n) {
 
 // console.log(bitFlip([0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1], 2));
 // console.log(bitFlip([0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1], 2));
+
+function mult(ar1, ar2) {
+    let carry = 0;
+    let prod = 0;
+    let arrToAdd = [];
+    let elemToAdd = 0;
+    for (let i = 0; i < ar1.length; i++) {
+        for (let j = 0; j < ar2.length; j++) {
+            prod = ar2[j] * ar1[i];
+            //if prod == 81
+            if (prod > 9) {
+                carry = Math.floor(prod % 10);
+
+                elemToAdd = prod % 10;
+            }
+
+        }
+    }
+}

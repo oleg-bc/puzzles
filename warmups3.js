@@ -50,3 +50,23 @@ function latticePaths2(m, n) {
 
 console.log(latticePaths2(3, 2));
 console.log(latticePaths2(7, 3));
+
+
+
+///steps to climb tabulation
+function numStepsToClimb(steps, total) {
+    let T = [];
+    T.push(1);
+    for (let stair = 1; stair <= total; stair++) {
+        T.push(0);
+        steps.forEach(function(step) {
+
+            if (step <= stair) {
+                T[stair] += T[stair - step];
+            }
+        })
+    }
+    return T[total];
+}
+
+console.log("STEPS TO CLIMB", numStepsToClimb([2, 3], 9));
