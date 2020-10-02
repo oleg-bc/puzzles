@@ -14,13 +14,92 @@ sortScores(unsortedScores, HIGHEST_POSSIBLE_SCORE);
 // returns [91, 89, 65, 53, 41, 37]
 */
 
+
+// //my attempt
+// function sortScores(unorderedScores, highestPossibleScore) {
+
+//     // Array of 0s at indices 0..highestPossibleScore
+//     const scoreCounts = new Array(highestPossibleScore + 1).fill(0);
+//     // Populate scoreCounts
+//     unorderedScores.forEach(score => {
+//       scoreCounts[score]++;
+//     });
+
+//     // Populate the final sorted array
+//     const sortedScores = [];
+  
+//     // For each item in scoreCounts
+//     for (let score = highestPossibleScore; score >= 0; score--) {
+//       const count = scoreCounts[score];
+  
+//       // For the number of times the item occurs
+//       for (let time = 0; time < count; time++) {
+//         sortedScores.push(score);
+//       }
+//     }
+  
+//     return sortedScores;
+//   }
+
+
+/*
+answer with explanation
+
+//[37, 89, 41, 65, 91, 53], 100
+let hps = 100;
+let arrScores = [37, 89, 41, 65, 91, 53]
+const scoreCounts = new Array(100+1).fill(0);
+console.log(scoreCounts);
+
+arrScores.forEach(score => {scoreCounts[score]++;});
+
+console.log('after forEach', scoreCounts);
+
+const sortedScores = [];
+
+for (let score = hps; score >= 0; score--){////LOOP DOWN STARTING WITH HI SCORE 100
+    const count = scoreCounts[score];//////   ASSIGN CURRENT POSITION TO COUNT STARTING
+    console.log('JUST THE COUNT',count);
+    for(let time = 0; time<count; time++){ /////// LOOP ***UP*** FROM ZERO NOT TO CUR POSITION OF OUTER LOOP but to count! which is either 0 or 1 or even the same score
+        sortedScores.push(score);/// I DONT UNDERSTAND WHY THIS WORKS WHAT GETS PUSHED????ANSWER IT GETS PUSHED ONLY IF ITS NOT 0 and it will get pushed in DESCENDING order because how outer loop is structured
+                console.log('PUSHING NOW',score);
+
+        }
+}
+console.log('FINAL', sortedScores);
+
+*/
+
+////////////////////WORKING THRU THE SOLUTION
+
 function sortScores(unorderedScores, highestPossibleScore) {
 
-    // Sort the scores in O(n) time
+    // Array of 0s at indices 0..highestPossibleScore
+    const scoreCounts = new Array(highestPossibleScore + 1).fill(0);
   
-    return unorderedScores;
+    // Populate scoreCounts
+    unorderedScores.forEach(score => {
+      scoreCounts[score]++;
+    });
+  
+    // Populate the final sorted array
+    const sortedScores = [];
+  
+    // For each item in scoreCounts
+    for (let score = highestPossibleScore; score >= 0; score--) {
+      const count = scoreCounts[score];
+  
+      // For the number of times the item occurs
+      for (let time = 0; time < count; time++) {
+        sortedScores.push(score);
+      }
+    }
+  
+    return sortedScores;
   }
-  
+
+
+
   
   
   
