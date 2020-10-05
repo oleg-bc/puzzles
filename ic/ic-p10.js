@@ -1,15 +1,15 @@
-function getMaxProfit(stockPrices) {
+// function getMaxProfit(stockPrices) {
 
-    // Calculate the max profit
-    let maxProfit = 0;
-    if(stockPrices.length<1){return maxProfit}
-    if(stockPrices.length===1){return 0;}
-    for(let i=0;i<stockPrices.length-1;i++){
-        maxProfit = Math.max(0, stockPrices[i+1]-stockPrices[i])+maxProfit;   
-    }
-  if (maxProfit<0){maxpProfit=0;}
-    return maxProfit;
-  }
+//     // Calculate the max profit
+//     let maxProfit = 0;
+//     if(stockPrices.length<1){return maxProfit}
+//     if(stockPrices.length===1){return 0;}
+//     for(let i=0;i<stockPrices.length-1;i++){
+//         maxProfit = Math.max(0, stockPrices[i+1]-stockPrices[i])+maxProfit;   
+//     }
+//   if (maxProfit<0){maxpProfit=0;}
+//     return maxProfit;
+//   }
   
   /*ANSWER*/
 
