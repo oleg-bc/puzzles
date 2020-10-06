@@ -44,14 +44,12 @@ reverseWords(message);
 console.log(message.join(''));
 // Prints: 'steal pound cake'*/
 function reverseWords(message) {
-    let leftInd = 0;
-    let rightInd = message.length - 1;
-
     function reverseLetters(array, leftInd, rightInd) {
         //for (let i = leftInd, e = rightInd - 1; i < rightInd / 2; i++, e--) {
+        leftInd = 0;
+        rightInd = message.length - 1;
         while (leftInd < rightInd) {
-            let temp;
-            temp = array[leftInd];
+            const temp = array[leftInd];
             array[leftInd] = array[rightInd];
             array[rightInd] = temp;
             leftInd++;
@@ -59,14 +57,18 @@ function reverseWords(message) {
         }
         return array;
     }
+
+    let array1 = reverseLetters(message);
+    console.log('array1 is ', array1)
     let currentWordStartIndex = 0;
-    for (let i = 0; i <= message.length; i++) {
-        if (message[i] == ' ' || i === message.length) {
-            reverseLetters(message, currentWordStartIndex, i - 1);
+    for (let i = 0; i <= array1.length; i++) {
+        if (i === array1.length || array1[i] === ' ') {
+
+            reverseLetters(array1, currentWordStartIndex, i - 1);
             currentWordStartIndex = i + 1;
         }
     }
-    return message;
+    return array1;
 }
 
 
