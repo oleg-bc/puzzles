@@ -41,6 +41,9 @@ function retWords(scrambled, inputWords) {
     }
     console.log('total of letters in each Word  ', JSON.stringify(secondHash));
     console.log('CURRENT RESULT ARR', resultArr);
+
+    ///final step - use up the scrambled string to build only the words that can be built
+
 }
 
 let scrambledString = 'zrzabxabty';
