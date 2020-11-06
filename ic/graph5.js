@@ -2,14 +2,11 @@ let graphAdj;
 let visited;
 let queue;
 const initGraph = (maxVertice) => {
-
     visited = new Array(maxVertice);
     queue = [];
-
     for (let i = 0; i < visited.length; i++) {
         visited[i] = false;
     }
-
 
     graphAdj = new Array(maxVertice);
     for (let i = 0; i < graphAdj.length; i++) {
@@ -20,7 +17,6 @@ const initGraph = (maxVertice) => {
             graphAdj[i][j] = 0;
         }
     }
-
 }
 
 const printGraph = () => {
@@ -60,7 +56,7 @@ const bfs = (node) => {
         for (let j = 0; j < graphAdj[visiting].length; j++) {
             if ((graphAdj[visiting][j] === 1) && (visited[j] === false)) {
                 visited[j] = true;
-                queue.pop(j)
+                queue.unshift(j)
             }
         }
     }
