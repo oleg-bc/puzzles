@@ -17,15 +17,17 @@ function shuffle(array) {
 
     function isHigh(len) {
         let ran = getRandom(0, len);
-        if (ran < len / 2) { return true; } else { return false };
+        //if (ran < len / 2) { return true; } else { return false };
+        return ran;
     }
 
     for (let i = 0; i < len - 1; i++) {
-        isHigh(len - 1);
+        let ran = isHigh(len - 1);
         if (isHigh(len)) {
             let temp = array[i];
-            array[i] = array[i + 1];
-            array[i + 1] = temp;
+            array[i] = array[ran];
+            array[ran] = temp;
+            g
         }
     }
     return array;
